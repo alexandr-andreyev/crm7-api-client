@@ -3,7 +3,7 @@ package crm7client
 func (c Crm7Client) GetVersion() (*Version, error) {
 	body := Message{
 		Action:       "Get version",
-		TerminalType: c.CrmTerminalType,
+		TerminalType: c.crmTerminalType,
 		UnitID:       "1",
 		UserID:       "1",
 	}
