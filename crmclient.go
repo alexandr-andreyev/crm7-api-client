@@ -7,17 +7,17 @@ import (
 )
 
 type Crm7Client struct {
-	CrmUrl          string
-	CrmTerminalType string
-	HTTPClient      *http.Client
+	crmUrl          string
+	crmTerminalType string
+	hTTPClient      *http.Client
 }
 
 func NewClient(CrmServerIP string, CrmPort int, CrmTerminalType string) *Crm7Client {
 	url := fmt.Sprintf("http://%s:%d", CrmServerIP, CrmPort)
 	return &Crm7Client{
-		CrmUrl:          url,
-		CrmTerminalType: CrmTerminalType,
-		HTTPClient: &http.Client{
+		crmUrl:          url,
+		crmTerminalType: CrmTerminalType,
+		hTTPClient: &http.Client{
 			Timeout: time.Minute,
 			//Transport: &http.Transport{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}},
 		},

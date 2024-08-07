@@ -18,7 +18,7 @@ func (c *Crm7Client) newRequest(method string, body interface{}) (*http.Request,
 			return nil, err
 		}
 	}
-	req, err := http.NewRequest(method, c.CrmUrl, buf)
+	req, err := http.NewRequest(method, c.crmUrl, buf)
 	if err != nil {
 		return nil, err
 	}
@@ -31,7 +31,7 @@ func (c *Crm7Client) newRequest(method string, body interface{}) (*http.Request,
 
 // TODO add error if cash server down
 func (с *Crm7Client) do(req *http.Request, v interface{}) (*http.Response, error) {
-	resp, err := с.HTTPClient.Do(req)
+	resp, err := с.hTTPClient.Do(req)
 	if err != nil {
 		return nil, err
 	}
