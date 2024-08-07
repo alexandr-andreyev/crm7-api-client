@@ -20,3 +20,11 @@ type Version struct {
 	Release    string   `xml:"Release"`
 	Build      string   `xml:"Build"`
 }
+
+type SystemTime struct {
+	XMLName   xml.Name `xml:"SystemTime"`
+	MessageID string   `xml:"Message_ID,attr"`
+	Date      string   `xml:"Date"`
+	Time      string   `xml:"Time"`
+	DateTime  string   `xml:"DateTime"`
+}
