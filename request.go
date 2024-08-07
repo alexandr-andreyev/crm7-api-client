@@ -3,6 +3,7 @@ package crm7client
 import (
 	"bytes"
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -36,23 +37,21 @@ func (с *Crm7Client) do(req *http.Request, v interface{}) (*http.Response, erro
 	}
 	defer resp.Body.Close()
 
-	body, err := io.ReadAll(resp.Body)
+	// body, err := io.ReadAll(resp.Body)
 
-	fmt.Println(string(body))
+	// fmt.Println(string(body))
 
-	// if resp.StatusCode >= 200 && resp.StatusCode <= 299 {
-	// 	err = xml.NewDecoder(resp.Body).Decode(v)
-	// 	if err != nil {
-	// 		s := fmt.Sprintf("xmkl decode error: %s", err)
-	// 		err = errors.New(s)
-	// 		return nil, err
-	// 	}
-	// 	return resp, nil
-	// }
-	// if resp.StatusCode == 401 {
-	// 	return nil, errUnauthorized
-	// }
-	// s := fmt.Sprintf("Unknown error. Status: %d", resp.StatusCode)
-	// err = errors.New(s)
+	if resp.StatusCode >= 200 && resp.StatusCode <= 299 {
+		err = xml.NewDecoder(resp.Body).Decode(v)
+		if err != nil {
+			s := fmt.Sprintf("xml decode error: %s", err)
+			err = errors.New(s)
+			return nil, err
+		}
+		return resp, nil
+	}
+
+	s := fmt.Sprintf("Unknown error. Status: %d", resp.StatusCode)
+	err = errors.New(s)
 	return nil, err
 }
