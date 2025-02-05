@@ -84,9 +84,9 @@ type Holder struct {
 	Source           string           `xml:"Source"`
 	Remarks          string           `xml:"Remarks"`
 	HolderAccounts   HolderAccounts   `xml:"Accounts"`
-	HoldersContacts  HoldersContacts  `xml:"Contacts"`
-	HoldersAddresses HoldersAddresses `xml:"Addresses"`
-	HoldersCards     HoldersCards     `xml:"Cards"`
+	HoldersContacts  HoldersContacts  `xml:"Holders_Contacts"`
+	HoldersAddresses HoldersAddresses `xml:"Holders_Addresses"`
+	HoldersCards     HoldersCards     `xml:"Holders_Cards"`
 }
 
 type HolderAccounts struct {
