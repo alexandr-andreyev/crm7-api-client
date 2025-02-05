@@ -6,7 +6,7 @@ func (c Crm7Client) SearchHolders2(phoneNumber string) (*Holders, error) {
 		TerminalType: c.crmTerminalType,
 		UnitID:       "1",
 		UserID:       "1",
-		Include:      "Holder_Contact, Holder_Address, Holder_Card",
+		Include:      "Account,Holder_Contact,Holder_Address,Holder_Card",
 		Count:        1,
 		Items: []Item{
 			{

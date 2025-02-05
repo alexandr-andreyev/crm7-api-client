@@ -83,9 +83,44 @@ type Holder struct {
 	LanguageName     string           `xml:"Language_Name"`
 	Source           string           `xml:"Source"`
 	Remarks          string           `xml:"Remarks"`
-	HoldersContacts  HoldersContacts  `xml:"Holders_Contacts"`
-	HoldersAddresses HoldersAddresses `xml:"Holders_Addresses"`
-	HoldersCards     HoldersCards     `xml:"Holders_Cards"`
+	HolderAccounts   HolderAccounts   `xml:"Accounts"`
+	HoldersContacts  HoldersContacts  `xml:"Contacts"`
+	HoldersAddresses HoldersAddresses `xml:"Addresses"`
+	HoldersCards     HoldersCards     `xml:"Cards"`
+}
+
+type HolderAccounts struct {
+	Account []HolderAccount `xml:"Account"`
+}
+
+type HolderAccount struct {
+	HolderID              string `xml:"Holder_ID"`
+	AccountNumber         string `xml:"Account_Number"`
+	Status                string `xml:"Status"`
+	AccountClass          string `xml:"Account_Class"`
+	AccountTypeID         string `xml:"Account_Type_ID"`
+	AccountTypeName       string `xml:"Account_Type_Name"`
+	AccountDebitEnabled   string `xml:"Account_Debit_Enabled"`
+	AccountDebitPriority  string `xml:"Account_Debit_Priority"`
+	AccountDebitK         string `xml:"Account_Debit_K"`
+	AccountCreditEnabled  string `xml:"Account_Credit_Enabled"`
+	AccountCreditPriority string `xml:"Account_Credit_Priority"`
+	AccountCreditK        string `xml:"Account_Credit_K"`
+	TransactionDebitID    string `xml:"Transaction_Debit_ID"`
+	TransactionCreditID   string `xml:"Transaction_Credit_ID"`
+	Create                string `xml:"Create"`
+	Expired               string `xml:"Expired"`
+	CreditDepth           string `xml:"Credit_Depth"`
+	Balance               string `xml:"Balance"`
+	AccountLevelID        string `xml:"Account_Level_ID"`
+	AccountLevelName      string `xml:"Account_Level_Name"`
+	SchemeID              string `xml:"Scheme_ID"`
+	ExternalID            string `xml:"External_ID"`
+	SchemeName            string `xml:"Scheme_Name"`
+	BaseRate              string `xml:"Base_Rate"`
+	AutoChangeLevels      string `xml:"Auto_Change_Levels"`
+	AccountCode           string `xml:"Account_Code"`
+	AccountCodeExt        string `xml:"Account_Code_Ext"`
 }
 
 // HoldersContacts представляет элемент Holders_Contacts
